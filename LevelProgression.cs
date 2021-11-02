@@ -5,21 +5,27 @@ using UnityEngine.UI;
 
 public class LevelProgression : MonoBehaviour
 {
-    //push level buttons to level array
-    private Button[] levelButtons;
-    // Start is called before the first frame update
+
+    //private GameObject LevelButtonArr;
+    public LevelSelect levelSel;
     void Start()
     {
+        levelSel = Camera.main.GetComponent<LevelSelect>();
         int levelReached = PlayerPrefs.GetInt("levelReached", 1); //level progression
 
+        //LevelSelect LvlButton = LevelButtonArr.AddComponent<LevelSelect>();
 
-        for (int i = 0; i < levelButtons; i++)
+        Debug.Log(levelSel.levelButtons);
+
+        for (int i = 0; i < levelSel.levelButtons.Length; i++)
         {
-               if (i + 1 > levelReached)
-            levelButtons[i].interactable = false;
-        }
-    }
+            if (i + 1 > levelReached)
+            {
+                levelSel.levelButtons[i].GetComponent<Button>().interactable = false;
 
-    // Update is called once per frame
-    // lis‰‰ vicotry kohtaan PlayerPrefs.SetInt("levelReached", currentlevel + 1 );
+            }
+        }
+
+    }
+    // lis√§√§ vicotry kohtaan PlayerPrefs.SetInt("levelReached", currentlevel + 1 );
 }
