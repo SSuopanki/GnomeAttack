@@ -2,14 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelProgression : MonoBehaviour
 {
 
     //private GameObject LevelButtonArr;
     public LevelSelect levelSel;
-    void Start()
+    private string sceneName;
+    private string sceneNum;
+    private int LevelNum;
+    
+    void Start() 
     {
+        sceneName = SceneManager.GetActiveScene().name;
+        sceneNum = sceneName.Substring(6);
+        LevelNum = int.Parse(sceneNum);
+
+
+
         levelSel = Camera.main.GetComponent<LevelSelect>();
         int levelReached = PlayerPrefs.GetInt("levelReached", 1); //level progression
 
