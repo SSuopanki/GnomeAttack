@@ -19,10 +19,10 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void mainMenu(int sceneID)
+    public void mainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(sceneID);
+        SceneManager.LoadScene("MainMenu");
     }
 }
 
