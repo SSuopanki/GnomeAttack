@@ -22,6 +22,9 @@ public class levelButton : MonoBehaviour
 
     void TaskOnClick()
     {
+        PlayerPrefs.SetFloat("MusicVolume", SoundManager.ambientVolume);
+        PlayerPrefs.SetFloat("fxVolume", SoundManager.fxVolume);
+        PlayerPrefs.Save();
         Debug.Log ("Pressed level button");
         SceneManager.LoadScene(btn_name);
     }
